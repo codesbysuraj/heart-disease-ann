@@ -22,7 +22,7 @@ The dataset includes clinical features such as:
 - `0` → No heart disease  
 - `1` → Heart disease present
 
-📁 Dataset Source: [[UCI Heart Disease Dataset](https://archive.ics.uci.edu/ml/datasets/Heart+Disease](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset))
+📁 Dataset Source: [Kaggle - Heart Disease Dataset](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset)
 
 ---
 
@@ -82,6 +82,7 @@ The dataset includes clinical features such as:
    ```bash
    git clone https://github.com/codesbysuraj/heart-disease-ann.git
    cd heart-disease-ann
+
 
 This is my first Git Repository 
 <br>
