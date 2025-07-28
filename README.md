@@ -22,7 +22,7 @@ The dataset includes clinical features such as:
 - `0` → No heart disease  
 - `1` → Heart disease present
 
-📁 Dataset Source: [UCI Heart Disease Dataset](https://archive.ics.uci.edu/ml/datasets/Heart+Disease)
+📁 Dataset Source: [[UCI Heart Disease Dataset](https://archive.ics.uci.edu/ml/datasets/Heart+Disease](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset))
 
 ---
 
