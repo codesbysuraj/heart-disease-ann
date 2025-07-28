@@ -84,7 +84,8 @@ The dataset includes clinical features such as:
    cd heart-disease-ann
 
 
-👨‍💻 Author <br>
-Suraj Yadav <br>
-GitHub: @codesbysuraj <br>
-Email: surajy.tech@gmail.com
+👨‍💻 **Author**  
+**Suraj Yadav**  
+- GitHub: [@codesbysuraj](https://github.com/codesbysuraj)  
+- Email: [surajy.tech@gmail.com](mailto:surajy.tech@gmail.com)
+
