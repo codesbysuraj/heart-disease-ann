@@ -84,6 +84,6 @@ The dataset includes clinical features such as:
    cd heart-disease-ann
 
 
-This is my first Git Repository 
-<br>
-Author - Suraj Yadav (CSE-AIML)
+Suraj Yadav
+GitHub: @codesbysuraj
+Email: surajy.tech@gmail.com
