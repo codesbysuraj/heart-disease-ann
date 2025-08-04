@@ -1,7 +1,12 @@
-# ANN
 # 🧠 Heart Disease Prediction using Artificial Neural Network (ANN)
 
-This project uses an **Artificial Neural Network (ANN)** to predict whether a patient is likely to have heart disease based on various medical attributes. It is built using Python and the Keras/TensorFlow framework inside a Jupyter Notebook.
+This project uses an **Artificial Neural Network (ANN)** to predict whether a patient is likely to have heart disease based on various medical attributes. It includes both a **Jupyter Notebook** for training and a **Streamlit Web App** for real-time prediction.
+
+---
+
+## 🌐 Live App
+
+👉 [Click here to try the app](https://heart-disease-detect-ann.streamlit.app)
 
 ---
 
@@ -18,21 +23,22 @@ The dataset includes clinical features such as:
 - ST depression
 - And more
 
-**Target:**  
+**Target:**
 - `0` → No heart disease  
 - `1` → Heart disease present
 
-📁 Dataset Source: [Kaggle - Heart Disease Dataset](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset)
+📁 **Dataset Source:**  
+[Kaggle - Heart Disease Dataset](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset)
 
 ---
 
 ## 🧠 Model Architecture
 
-| Layer Type     | Details                          |
-|----------------|----------------------------------|
-| Input Layer    | 13 input features                |
+| Layer Type     | Details                            |
+|----------------|------------------------------------|
+| Input Layer    | 13 input features                  |
 | Hidden Layers  | Dense layers with ReLU activations |
-| Output Layer   | 1 neuron (Sigmoid activation) for binary classification |
+| Output Layer   | 1 neuron with Sigmoid activation   |
 
 - **Loss Function:** Binary Crossentropy  
 - **Optimizer:** Adam  
@@ -40,19 +46,20 @@ The dataset includes clinical features such as:
 
 ---
 
-## 📈 Performance
+## 📈 Model Performance
 
-- ✅ **Training Accuracy:** ~98.26%
-- ✅ **Testing Accuracy:** ~84.61%
-- The model performs well, with slight overfitting observed.
+- ✅ **Training Accuracy:** ~98.26%  
+- ✅ **Testing Accuracy:** ~84.61%  
+- 🧪 Slight overfitting observed
 
 ---
 
 ## 🛠️ Technologies Used
 
 - Python
-- Pandas, NumPy
 - TensorFlow / Keras
+- Streamlit
+- Pandas, NumPy
 - Matplotlib, Seaborn
 - Jupyter Notebook
 
@@ -60,28 +67,27 @@ The dataset includes clinical features such as:
 
 ## 📁 Files Included
 
-- `Heart_ANN.ipynb` → Full notebook with:
-  - Data preprocessing
-  - ANN model building
-  - Training & Evaluation
-  - Visualizations
+| File                      | Description                                   |
+|---------------------------|-----------------------------------------------|
+| `Heart_ANN.ipynb`         | Notebook: training, evaluation, visualization |
+| `heart_disease_app_py.py` | Streamlit web interface                       |
+| `heart_ann_model.h5`      | Trained ANN model (Keras H5 format)           |
+| `requirements.txt`        | Project dependencies                          |
 
 ---
 
-## 🖼️ Visual Outputs
+## 🚀 How to Run the App Locally
 
-- Accuracy and loss plots
-- Confusion matrix
-- Prediction examples
+```bash
+# Clone the repository
+git clone https://github.com/codesbysuraj/heart-disease-detect-ann.git
+cd heart-disease-detect-ann
 
----
+# Install dependencies
+pip install -r requirements.txt
 
-## 🚀 How to Run
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/codesbysuraj/heart-disease-ann.git
-   cd heart-disease-ann
+# Launch the Streamlit app
+streamlit run heart_disease_app_py.py
 
 
 👨‍💻 **Author**  
