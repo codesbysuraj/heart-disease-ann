@@ -6,7 +6,7 @@ This project uses an **Artificial Neural Network (ANN)** to predict whether a pa
 
 ## 🌐 Live App
 
-👉 [Click here to try the app]([https://ai-heart-risk-checker.streamlit.app/])
+👉 [Click here to try the app](https://ai-heart-risk-checker.streamlit.app/)
 
 ---
 
