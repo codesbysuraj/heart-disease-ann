@@ -11,38 +11,68 @@ import streamlit as st
 import numpy as np
 import tensorflow as tf
 
-# Load model
+# Load the trained model
 model = tf.keras.models.load_model('heart_ann_model.h5')
 
-st.set_page_config(page_title="Heart Disease Prediction", layout="centered")
-st.title("❤️ Heart Disease Risk Prediction Using ANN")
-st.markdown("Enter the following details to check your risk of heart disease:")
+# Set Streamlit page configuration
+st.set_page_config(page_title="Heart Disease Predictor", layout="centered")
 
-# Input fields
-age = st.number_input("Age", 1, 120)
-sex = st.selectbox("Sex", options=["Male", "Female"])
-cp = st.selectbox("Chest Pain Type (cp)", [0, 1, 2, 3])
-trestbps = st.number_input("Resting Blood Pressure (trestbps)", 80, 200)
-chol = st.number_input("Cholesterol (chol)", 100, 600)
-fbs = st.selectbox("Fasting Blood Sugar > 120 mg/dl (fbs)", [0, 1])
-restecg = st.selectbox("Resting ECG (restecg)", [0, 1, 2])
-thalach = st.number_input("Maximum Heart Rate Achieved (thalach)", 60, 220)
-exang = st.selectbox("Exercise Induced Angina (exang)", [0, 1])
-oldpeak = st.number_input("Oldpeak (ST depression)", 0.0, 10.0, step=0.1)
-slope = st.selectbox("Slope of the Peak Exercise ST segment", [0, 1, 2])
-ca = st.selectbox("Number of Major Vessels Colored (ca)", [0, 1, 2, 3, 4])
-thal = st.selectbox("Thalassemia (thal)", [0, 1, 2, 3])
+# Header section
+st.markdown("<h1 style='text-align: center;'>❤️ Heart Disease Prediction</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>Using Artificial Neural Network (ANN)</p>", unsafe_allow_html=True)
+st.markdown("---")
 
-# Convert categorical
+# Instructions
+with st.expander("📋 **About this App**", expanded=False):
+    st.write("""
+        This tool uses a trained deep learning model (ANN) to estimate your risk of heart disease.
+        Fill in your health data below and click **Predict** to see your risk level.
+    """)
+
+st.markdown("### 🧍 Personal Information")
+
+col1, col2 = st.columns(2)
+with col1:
+    age = st.number_input("🔢 Age", 1, 120, step=1)
+    sex = st.selectbox("⚧️ Sex", options=["Male", "Female"])
+    cp = st.selectbox("💓 Chest Pain Type (cp)", [0, 1, 2, 3], help="Types: 0 = Typical Angina, 1 = Atypical Angina, 2 = Non-anginal Pain, 3 = Asymptomatic")
+    trestbps = st.number_input("💉 Resting BP (trestbps)", 80, 200)
+    chol = st.number_input("🍔 Cholesterol (mg/dl)", 100, 600)
+
+with col2:
+    fbs = st.selectbox("🍬 Fasting Blood Sugar > 120 mg/dl (fbs)", [0, 1])
+    restecg = st.selectbox("🩺 Resting ECG (restecg)", [0, 1, 2])
+    thalach = st.number_input("🏃 Max Heart Rate Achieved (thalach)", 60, 220)
+    exang = st.selectbox("🏋️‍♂️ Exercise-Induced Angina (exang)", [0, 1])
+    oldpeak = st.number_input("📉 ST Depression (oldpeak)", 0.0, 10.0, step=0.1)
+
+st.markdown("### 🫀 Additional Clinical Data")
+
+col3, col4 = st.columns(2)
+with col3:
+    slope = st.selectbox("📈 Slope of ST Segment", [0, 1, 2])
+    ca = st.selectbox("🧪 Major Vessels Colored (ca)", [0, 1, 2, 3, 4])
+
+with col4:
+    thal = st.selectbox("🧬 Thalassemia Type", [0, 1, 2, 3], help="0 = Unknown, 1 = Fixed Defect, 2 = Normal, 3 = Reversible Defect")
+
+# Convert categorical inputs
 sex = 1 if sex == "Male" else 0
 
-# Predict
-if st.button("🔍 Predict"):
+# Prediction logic
+st.markdown("---")
+if st.button("🔍 Predict Risk"):
     user_input = np.array([[age, sex, cp, trestbps, chol, fbs,
                             restecg, thalach, exang, oldpeak,
                             slope, ca, thal]])
-    prediction = model.predict(user_input)
+    prediction = model.predict(user_input)[0][0]
 
-    result = "🚨 High Risk of Heart Disease" if prediction[0][0] > 0.5 else "✅ Low Risk of Heart Disease"
-    st.subheader("Prediction Result:")
-    st.success(result)
+    if prediction > 0.5:
+        st.error("🚨 **High Risk of Heart Disease**")
+    else:
+        st.success("✅ **Low Risk of Heart Disease**")
+
+    st.markdown(f"**Model Confidence:** `{prediction:.2%}`")
+
+st.markdown("---")
+st.caption("🔒 This prediction tool is for educational purposes only. Always consult a medical professional for diagnosis.")
