@@ -88,9 +88,10 @@ pip install -r requirements.txt
 
 # Launch the Streamlit app
 streamlit run heart_disease_app_py.py
+```
 
+## 👨‍💻 Author
 
-👨‍💻 **Author**  
 **Suraj Yadav**  
 - GitHub: [@codesbysuraj](https://github.com/codesbysuraj)  
 - Email: [surajy.tech@gmail.com](mailto:surajy.tech@gmail.com)
